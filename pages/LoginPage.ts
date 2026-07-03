@@ -22,7 +22,8 @@ export class LoginPage{
         this.passwordAlert = page.getByText('Password is required')
     }
     async navigateTo(){
-        await this.signinLink.click()
+        await this.signinLink.waitFor({ state: 'visible', timeout: 15000 });
+        await this.signinLink.click();
     }
 
     async fillUsername(username:string){
