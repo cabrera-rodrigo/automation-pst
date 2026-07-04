@@ -41,6 +41,9 @@ export default defineConfig({
     {
       name: 'setup',
       testMatch: /.*\.setup\.ts/,
+       use: {
+        storageState: { cookies: [], origins: [] }
+      }
     },
     {
       name: 'e2e-unauthenticated',
