@@ -75,7 +75,7 @@ export class LoginPage{
     await this.signinLink.click();
     }
     async loginSetup(username:string, password:string){
-        await this.navigateTo()
+        await this.navigateSetup()
         await this.fillUsername(username)
         await this.fillPassword(password)
         await this.clickOnLogin()
