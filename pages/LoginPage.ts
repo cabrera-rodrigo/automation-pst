@@ -15,7 +15,7 @@ export class LoginPage{
         this.usernameTextbox = page.getByRole('textbox', {name:'Email address'})
         this.passwordTextbox = page.getByRole('textbox', {name:'Password'})
         this.loginButton = page.getByRole('button', {name:'Login'})
-        this.successfulLogin = page.locator('[data-test="page-title"]').getByText('My account');
+        this.successfulLogin = page.getByText('My account');
         this.signinLink = page.getByRole('link', {name:'Sign in'})
         this.invalidLogin = page.getByText('Invalid email or password')
         this.emailAlert = page.getByText('Email is required')
@@ -39,11 +39,6 @@ export class LoginPage{
         return this.successfulLogin
     }
 
-    // async emptyInput(){
-    //     await expect(this.emailAlert).toBeVisible()
-    //     await expect(this.passwordAlert).toBeVisible()
-    // }
-
     checkInvalidLogin(){
         return this.invalidLogin
     }
@@ -55,23 +50,10 @@ export class LoginPage{
         return this.passwordAlert
     }
 
-    // async loginInvalid(username:string, password:string){
-    //     await this.navigateTo()
-    //     await this.fillUsername(username)
-    //     await this.fillPassword(password)
-    //     await this.clickOnLogin()
-    //     if (username || password !== ''){ 
-    //         await this.checkInvalidLogin()
-    //     } else {
-    //         await this.emptyInput()
-    //     }
-    // }
-
     async loginWithCredentials(username:string, password:string){
         await this.navigateTo()
         await this.fillUsername(username)
         await this.fillPassword(password)
         await this.clickOnLogin()
-        //await this.checkSuccessfulLogin()
     }
 }
