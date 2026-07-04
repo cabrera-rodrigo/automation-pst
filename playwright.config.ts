@@ -40,10 +40,10 @@ export default defineConfig({
     // 1. Definimos el paso de configuración (setup)
     {
       name: 'setup',
-      testMatch: /.*\.setup\.ts/,
-       use: {
-        storageState: { cookies: [], origins: [] }
-      }
+      testMatch: /.*\.setup\.ts/
+      //  use: {
+      //   storageState: { cookies: [], origins: [] }
+      // }
     },
     {
       name: 'e2e-unauthenticated',
