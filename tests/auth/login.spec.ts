@@ -5,7 +5,7 @@ test('deberia loguearse correctamente', async ({page, loginPage, homePage}) => {
     await homePage.home()
     await homePage.openLogin()
     await loginPage.loginWithCredentials(process.env.USER_EMAIL!, process.env.USER_PASSWORD!)
-    await expect(loginPage.checkSuccessfulLogin()).toBeVisible({ timeout: 15000 })
+    await expect(loginPage.checkSuccessfulLogin()).toBeVisible()
 })
 
 test('intento de login con constraseña incorrecta', async ({loginPage, homePage}) => {
