@@ -40,7 +40,10 @@ export default defineConfig({
     // 1. Definimos el paso de configuración (setup)
     {
       name: 'setup',
-      testMatch: /.*\.setup\.ts/
+      testMatch: /.*\.setup\.ts/,
+      use: {
+        ...devices['Desktop Chrome']
+      }
       //  use: {
       //   storageState: { cookies: [], origins: [] }
       // }
