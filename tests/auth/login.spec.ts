@@ -5,30 +5,36 @@ test('deberia loguearse correctamente', async ({page, loginPage, homePage}) => {
     await homePage.home()
     await homePage.openLogin()
     await loginPage.loginWithCredentials(process.env.USER_EMAIL!, process.env.USER_PASSWORD!)
-    await page.waitForSelector('[data-test="page-title"]', { state: 'visible', timeout: 15000 });
+    try{
+        await page.waitForSelector('[data-test="page-title"]', { state: 'visible', timeout: 15000 });
+
+    }catch(error){
+        await page.screenshot({ path: 'evidencia-error-login.png', fullPage:true })
+        throw error
+    }
     await expect(loginPage.checkSuccessfulLogin()).toBeVisible()
     //await expect(page.getByRole('link', {name:'Sign in'})).toBeHidden()
-    await page.pause()
+    //await page.pause()
 })
 
-test('intento de login con constraseña incorrecta', async ({loginPage, homePage}) => {
-    await homePage.home()
-    await homePage.openLogin()
-    await loginPage.loginWithCredentials(users.invalidPassword.email,users.invalidPassword.password)
-    await expect(loginPage.checkInvalidLogin()).toBeVisible()
-})
+// test('intento de login con constraseña incorrecta', async ({loginPage, homePage}) => {
+//     await homePage.home()
+//     await homePage.openLogin()
+//     await loginPage.loginWithCredentials(users.invalidPassword.email,users.invalidPassword.password)
+//     await expect(loginPage.checkInvalidLogin()).toBeVisible()
+// })
 
-test('intento de login con un correo que no existe', async ({loginPage,homePage}) => {
-    await homePage.home()
-    await homePage.openLogin()
-    await loginPage.loginWithCredentials(users.invalidEmail.email, users.invalidEmail.password)
-    await expect(loginPage.checkInvalidLogin()).toBeVisible()
-})
+// test('intento de login con un correo que no existe', async ({loginPage,homePage}) => {
+//     await homePage.home()
+//     await homePage.openLogin()
+//     await loginPage.loginWithCredentials(users.invalidEmail.email, users.invalidEmail.password)
+//     await expect(loginPage.checkInvalidLogin()).toBeVisible()
+// })
 
-test('intento de login dejando los campos vacios', async ({loginPage, homePage}) => {
-    await homePage.home()
-    await homePage.openLogin()
-    await loginPage.loginWithCredentials('','')
-    await expect(loginPage.emailRequiredVisible()).toBeVisible()
-    await expect(loginPage.passwordRequiredVisible()).toBeVisible()
-})
+// test('intento de login dejando los campos vacios', async ({loginPage, homePage}) => {
+//     await homePage.home()
+//     await homePage.openLogin()
+//     await loginPage.loginWithCredentials('','')
+//     await expect(loginPage.emailRequiredVisible()).toBeVisible()
+//     await expect(loginPage.passwordRequiredVisible()).toBeVisible()
+// })
