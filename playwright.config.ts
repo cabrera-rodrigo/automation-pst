@@ -44,9 +44,6 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome']
       }
-      //  use: {
-      //   storageState: { cookies: [], origins: [] }
-      // }
     },
     {
       name: 'e2e-unauthenticated',
