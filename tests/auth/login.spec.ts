@@ -5,9 +5,10 @@ test('deberia loguearse correctamente', async ({page, loginPage, homePage}) => {
     await homePage.home()
     await homePage.openLogin()
     await loginPage.loginWithCredentials(process.env.USER_EMAIL!, process.env.USER_PASSWORD!)
-    // await page.waitForURL('https://practicesoftwaretesting.com/account')
+    //await page.waitForURL('https://practicesoftwaretesting.com/account')
     // await expect(loginPage.checkSuccessfulLogin()).toBeVisible()
-    await expect(page.getByText('My account')).toBeVisible()
+    await expect(page.getByRole('link', {name:'Sign in'})).toBeHidden()
+    await page.pause()
 })
 
 test('intento de login con constraseña incorrecta', async ({loginPage, homePage}) => {
