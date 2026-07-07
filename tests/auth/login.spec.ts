@@ -5,9 +5,7 @@ test('deberia loguearse correctamente', async ({page, loginPage, homePage}) => {
     await homePage.home()
     await homePage.openLogin()
     await loginPage.loginWithCredentials(process.env.USER_EMAIL!, process.env.USER_PASSWORD!)
-    //await page.waitForURL('https://practicesoftwaretesting.com/account')
-    await page.reload({ waitUntil: 'domcontentloaded' });
-    await expect(loginPage.checkSuccessfulLogin()).toBeVisible({timeout: 15000})
+    await expect(loginPage.checkSuccessfulLogin()).toBeVisible()
     //await expect(page.getByRole('link', {name:'Sign in'})).toBeHidden()
     await page.pause()
 })

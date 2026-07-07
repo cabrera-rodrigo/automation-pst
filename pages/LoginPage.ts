@@ -18,7 +18,7 @@ export class LoginPage{
         this.usernameTextbox = page.getByRole('textbox', {name:'Email address'})
         this.passwordTextbox = page.getByRole('textbox', {name:'Password'})
         this.loginButton = page.getByRole('button', {name:'Login'})
-        this.successfulLogin = page.getByText('My account');
+        this.successfulLogin = page.locator('[data-test="page-title"]');
         this.signinLink = page.getByRole('link', {name:'Sign in'})
         this.invalidLogin = page.getByText('Invalid email or password')
         this.emailAlert = page.getByText('Email is required')
