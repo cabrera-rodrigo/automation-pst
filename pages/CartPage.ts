@@ -15,7 +15,7 @@ export class CartPage{
         this.itemsContainer = page.locator('div.container[data-test=""] a.card')
         this.addtocartButton = page.getByRole('button', {name:'Add to cart'})
         this.cartLink = page.getByRole('link', {name:'cart'})
-        this.productQuantity = page.getByRole('spinbutton', {name:'Quantity for Combination Pliers'})
+        this.productQuantity = page.locator('[data-test="product-quantity"]')
         this.removeButton = page.locator('a.btn-danger')
         this.alertEmpty = page.getByText('The cart is empty. Nothing to display.')
         this.tableItem = page.locator('table.table-hover')

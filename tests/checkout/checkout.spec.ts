@@ -3,7 +3,9 @@ import { test, expect } from '../../fixtures/pageObjects'
 
 test('Deberia completar compra exitosamente', async ({page,homePage, cartPage, checkoutPage}) => {
     await homePage.home()
-    await homePage.clickOnHome()
+    //  await page.pause()
+    // await homePage.clickOnHome()
+    // await page.pause()
     await cartPage.addProductOnCart()
     await expect(checkoutPage.verifiedLogin()).toBeVisible()
     await checkoutPage.checkoutFinal(
@@ -12,7 +14,7 @@ test('Deberia completar compra exitosamente', async ({page,homePage, cartPage, c
         checkoutData.street,
         checkoutData.city,
         checkoutData.state)
-    // await page.pause()
+    await page.pause()
 })
 
 test('intentar avanzar dejando campos obligatorios vacios', async ({page, homePage, cartPage, checkoutPage}) => {
