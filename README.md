@@ -22,6 +22,13 @@ Framework de pruebas automatizadas End-to-End (E2E) desarrollado con **Playwrigh
    npm ci
    npx playwright install --with-deps
 
+2. Crear un archivo .env en la raiz del proyecto son las siguientes variables
+   ```bash
+   BASE_URL= https://practicesoftwaretesting.com
+   USER_EMAIL= * utilizar algun email de prueba que brinda la pagina
+   USER_PASSWORD= * utilizar contraseña de prueba que brinda la pagina
+* O en su defecto utilizar las variables del archivo .env.example
+
 ## Ejecución de pruebas
 * Correr toda la suite: npm test
 * Correr solo el Smoke Test E2E: npm run test:smoke
