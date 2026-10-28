@@ -34,3 +34,5 @@ Framework de pruebas automatizadas End-to-End (E2E) desarrollado con **Playwrigh
 * Correr solo el Smoke Test E2E: npm run test:smoke
 * Modo interactivo (UI Mode): npm run test:ui
 * Ver reporte HTML: npm run report
+
+"Nota sobre CI/CD: El entorno público de Practice Software Testing cuenta con protección anti-bots de Cloudflare en el flujo de autenticación, lo cual puede bloquear IPs de data centers como los runners de GitHub Actions. En ejecución local la suite completa se ejecuta exitosamente."
